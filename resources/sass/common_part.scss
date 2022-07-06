@@ -1,0 +1,107 @@
+body{
+  background-color:#F5F5F9;
+  
+}
+
+h2{
+  display: block !important;
+    height: auto;
+    padding: 7vw 5vw;
+    margin-bottom: 5vw;
+    font-size: 20px;
+    text-align: left;
+    
+    background: linear-gradient(to right, #142E85,#0F57A9);
+    background-color: #0F57A9;
+    color: #fff;
+    letter-spacing: 0.2em;
+}
+.attention{
+  background-color:#fff;
+  padding:10px;
+  margin-bottom:20px;
+}
+
+/* 店舗一覧 */
+/*
+.page-ttl#shop-ttl{
+	background: url(../img/shop/ttl_bg.jpg) no-repeat;
+	background-size:cover;
+}
+ */
+.shop-data{
+	width:100%;
+	border-collapse:collapse;
+	border: solid 1px #E6E6E6;
+}
+.shop-data thead th,
+.shop-data tbody th,
+.shop-data tbody td{
+	padding:8px;
+	vertical-align:middle;
+}
+.shop-data thead th{
+	background-color:#949AA3;
+	color:#fff;
+}
+.shop-data tbody tr:nth-child(odd) th,
+.shop-data tbody tr:nth-child(odd) td{
+	background-color:#fff;
+}
+.shop-data tbody tr:nth-child(even) th,
+.shop-data tbody tr:nth-child(even) td{
+	background-color:#F3F3F3;
+}
+.shop-data tbody th{
+	width:7%;
+}
+.shop-data tbody td{
+	width:18%;
+}
+.shop-ttl01,
+.shop-ttl02,
+.shop-ttl03,
+.shop-ttl04{
+	position:relative;
+	margin-bottom:30px;
+	padding-left:35px;
+}
+.shop-ttl01:before{
+	position:absolute;
+	left:10px;
+	top:50%;
+	margin-top:-20px;
+}
+.shop-ttl02:before{
+	position:absolute;
+	left:10px;
+	top:50%;
+	margin-top:-20px;
+}
+.shop-ttl03:before{
+	position:absolute;
+	left:10px;
+	top:50%;
+	margin-top:-20px;
+}
+.shop-ttl04:before {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -20px;
+}
+.map-link{
+}
+.map-link a{
+	display:inline-block;
+	padding:7px 15px;
+	border: solid 1px #121212;
+	line-height:1;
+	text-decoration:none;
+}
+#map{
+	width:100%;
+	padding-top:40%;
+}
+
+

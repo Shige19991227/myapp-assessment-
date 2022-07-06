@@ -1,0 +1,35 @@
+body {
+  background-color: #F5F5F9;
+}
+
+h2 {
+  display: block !important;
+  height: auto;
+  padding: 7vw 5vw;
+  margin-bottom: 5vw;
+  font-size: 20px;
+  text-align: left;
+  background: linear-gradient(to right, #142E85, #0F57A9);
+  background-color: #0F57A9;
+  color: #fff;
+  letter-spacing: 0.2em;
+}
+
+.attention {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.attention p {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0px;
+  color: red;
+}
+
+input text {
+  width: 100%;
+  font-size: 16px;
+}
+
