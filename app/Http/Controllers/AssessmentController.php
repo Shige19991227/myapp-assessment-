@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Assessment;
 
 class AssessmentController extends Controller
 {
@@ -16,7 +17,7 @@ class AssessmentController extends Controller
     {
         $this->validate($request, Assessment::$rules);
 
-      $assess = new Assess;
+      $assess = new Assessment;
       $form = $request->all();
 
 
@@ -26,8 +27,9 @@ class AssessmentController extends Controller
       } else {
           $assess->image_path = null;
       }
+      
       if(isset($form['note'])){
-          return redirect('assessment.remarks');
+          return view('assessment.remarks');
       }
       
       
@@ -35,6 +37,10 @@ class AssessmentController extends Controller
         $brand = $request->input('brand');
         $model_year = $request->input('model_year');
         $note = $request->input('note');
+        
+        
+        $assess->fill($form);
+        $assess->save();
         
         
         return view('assessment.result', ['name'=>$name,'brand'=>$brand,'model_year'=>$model_year]);
