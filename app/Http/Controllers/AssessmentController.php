@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Assessment;
+use Carbon\Carbon;
 
 class AssessmentController extends Controller
 {
@@ -19,19 +20,21 @@ class AssessmentController extends Controller
 
       $assess = new Assessment;
       $form = $request->all();
+      
+       if(isset($form['note'])){
+          return view('assessment.remarks');
+      }
+      
 
 
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
         $assess->image_path = basename($path);
-      } else {
+      }else {
           $assess->image_path = null;
       }
       
-      if(isset($form['note'])){
-          return view('assessment.remarks');
-      }
-      
+     
       
         $name = $request->input('name');
         $brand = $request->input('brand');

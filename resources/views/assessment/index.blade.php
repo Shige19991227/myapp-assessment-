@@ -15,7 +15,7 @@
         <div class="attention">
           <p>注意事項</p>
         <ul>
-          　<li>年式が<span style="color:red;">７年前以上</span>の製品や、<span style="color:red;">正常に動作しないもの</span>は当店では買取ができません。ご了承ください。</li>
+          　<li>年式が<span style="color:red;">７年以上前</span>の製品や、<span style="color:red;">正常に動作しないもの</span>は当店では買取ができません。ご了承ください。</li>
             <li>実際の査定時には、当店の基準に基づき査定するため、<span style="color:red;">状態等により金額が変動する</span>場合がございます。</li>
             <li>ヒーターや扇風機等の家電は、オフシーズンは買取ができない場合がございます。</li>
             <li>冷蔵庫、洗濯機は<a href="https://www.fukatsu-inc.co.jp/shutcho-purchase/">出張買取対象商品</a>です。</li>
@@ -31,15 +31,55 @@
                               @endforeach
                           </ul>
                       @endif
-        <form action="/assessment/result" method="post">
+        <form action="/assessment/result" method="post" enctype="multipart/form-data">
           @csrf
-          <label>商品名<br><input type="text" name="name"/></label><br>
-          <label>状態<br><input type="text" name="condition" /></label><br>
-          <label>年式<br><input type="text" name="model_year" /></label><br>
+          <label>商品名<br>
+              <select name="name">
+                <option  disabled selected style="display:none;">選択してください</option>
+                <option>オーブンレンジ</option>
+                <option>電子レンジ</option>
+                <option>加湿器</option>
+                <option>ブルーレイプレーヤー</option>
+                <option>掃除機</option>
+                <option>扇風機</option>
+                <option>ヒーター</option>
+                <option>テレビ</option>
+                <option>ガスコンロ（LP）</option>
+                <option>ガスコンロ（都市ガス）</option>
+                <option>炊飯器</option>
+                <option>空気清浄機</option>
+                <option>その他</option>
+               </select></label><br>
+          
+          <label>状態<br>
+              <select name="condition">
+                <option value="" disabled selected style="display:none;">選択してください</option>
+                <option>新品未使用、未開封</option>
+                <option>新品未使用</option>
+                <option>使用、美品</option>
+                <option>使用、使用感有り</option>
+                <option>破損あり、動作可</option>
+              </select></label><br>
+          
+          <label>年式<br>
+              <select name="model_year">
+                <option value="" disabled selected style="display:none;">選択してください</option>
+                <option>1年以内</option>
+                <option>1年落ち</option>
+                <option>2年落ち</option>
+                <option>3年落ち</option>
+                <option>4年落ち</option>
+                <option>5年落ち</option>
+                <option>6年落ち</option>
+                <option>7年落ち</option>
+              </select></label><br>
+          
           <label>メーカー<br><input type="text" name="brand" /></label><br>
+          
           <label>備考(任意)<br><textarea name="note" placeholder="備考欄に入力する場合はご利用可能なメールアドレスを必ずご入力ください。"　rows="15" cols="60" style="height:100px;"></textarea></label><br>
+          
           <label>画像(任意)<br><input type="file" class="form-control-file" name="image"></label><br>
-          <input type="submit" name="送信"  />
+          <input type="submit" name="送信"/>
           
           
         </form>

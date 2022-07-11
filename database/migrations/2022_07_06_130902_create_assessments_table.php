@@ -18,9 +18,9 @@ class CreateAssessmentsTable extends Migration
             $table->string('name',128);
             $table->smallInteger('model_year');
             $table->string('brand',64);
-            $table->tinyInteger('condition');
+            $table->string('condition',64);
             $table->text('note')->nullable();
-            $table->string('image',256)->nullable();
+            $table->string('image_path',256)->nullable();
             $table->timestamps();
         });
     }
