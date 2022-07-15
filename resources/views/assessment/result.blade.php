@@ -15,7 +15,7 @@
     <div class="result-main">  
     　　<p>あなたの<br>
     　　<span style="font-size:xx-large;color:red">{{$name}},{{$model_year}},{{$brand}}</span>
-    　　は<span style="font-size:xx-large;color:red">￥　〜￥</span><br>
+    　　は<span style="font-size:xx-large;color:red">￥{{$price['min_price']}}〜￥{{$price['max_price']}}</span><br>
     で買取が可能です。</p>
     </div>
     
@@ -53,7 +53,7 @@
 						</td>
 						<td>営業時間10:00～20:00</td>
 						<td>年中無休</td>
-					</tr>	
+					</tr>
 					<tr>
 						<th><img src="https://www.fukatsu-inc.co.jp/img/shop/photo_recycle_gamagori.jpg" alt="リサイクルショップ フカツ 蒲郡店"></th>
 						<td>リサイクルショップ フカツ 蒲郡店</td>

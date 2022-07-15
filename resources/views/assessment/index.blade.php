@@ -35,7 +35,7 @@
           @csrf
           <label>商品名<br>
               <select name="name">
-                <option  disabled selected style="display:none;">選択してください</option>
+                <option value="" disabled selected style="display:none;">選択してください</option>
                 <option>オーブンレンジ</option>
                 <option>電子レンジ</option>
                 <option>加湿器</option>
@@ -64,22 +64,20 @@
           <label>年式<br>
               <select name="model_year">
                 <option value="" disabled selected style="display:none;">選択してください</option>
-                <option>1年以内</option>
-                <option>1年落ち</option>
-                <option>2年落ち</option>
-                <option>3年落ち</option>
-                <option>4年落ち</option>
-                <option>5年落ち</option>
-                <option>6年落ち</option>
-                <option>7年落ち</option>
+                @foreach ($years as $year)
+                <option value="{{$year}}"> {{$year}}年式 </option>
+                @endforeach 
               </select></label><br>
           
           <label>メーカー<br><input type="text" name="brand" /></label><br>
           
           <label>備考(任意)<br><textarea name="note" placeholder="備考欄に入力する場合はご利用可能なメールアドレスを必ずご入力ください。"　rows="15" cols="60" style="height:100px;"></textarea></label><br>
-          
-          <label>画像(任意)<br><input type="file" class="form-control-file" name="image"></label><br>
-          <input type="submit" name="送信"/>
+
+          <div class="photo_space">
+          <label>画像(任意 ※複数枚選択可)<br>
+                <input type="file"　enctype='multipart/form-data' class="form-control-file" name="image" multiple/><br>
+          </div>
+           <input type="submit" name="送信"/>
           
           
         </form>
