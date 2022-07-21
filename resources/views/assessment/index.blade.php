@@ -36,29 +36,30 @@
           <label>商品名<br>
               <select name="name">
                 <option value="" disabled selected style="display:none;">選択してください</option>
-                <option>オーブンレンジ</option>
-                <option>電子レンジ</option>
-                <option>加湿器</option>
-                <option>ブルーレイプレーヤー</option>
-                <option>掃除機</option>
-                <option>扇風機</option>
-                <option>ヒーター</option>
-                <option>テレビ</option>
-                <option>ガスコンロ（LP）</option>
-                <option>ガスコンロ（都市ガス）</option>
-                <option>炊飯器</option>
-                <option>空気清浄機</option>
-                <option>その他</option>
+                <option value="オーブンレンジ">オーブンレンジ</option>
+                <option value="電子レンジ">電子レンジ</option>
+                <option value="加湿器">加湿器</option>
+                <option value="ブルーレイプレーヤー">ブルーレイプレーヤー</option>
+                <option value="掃除機">掃除機</option>
+                <option value="扇風機">扇風機</option>
+                <option value="ヒーター">ヒーター</option>
+                <option value="テレビ(~32インチ)">テレビ(~32インチ)</option>
+                <option value="テレビ(~58インチ)">テレビ(~58インチ)</option>
+                <option value="ガスコンロlp">ガスコンロ（LP）</option>
+                <option value="ガスコンロ都市ガス">ガスコンロ（都市ガス）</option>
+                <option value="炊飯器">炊飯器</option>
+                <option value="空気清浄機">空気清浄機</option>
+                <option value="その他">その他</option>
                </select></label><br>
           
           <label>状態<br>
               <select name="condition">
                 <option value="" disabled selected style="display:none;">選択してください</option>
-                <option>新品未使用、未開封</option>
-                <option>新品未使用</option>
-                <option>使用、美品</option>
-                <option>使用、使用感有り</option>
-                <option>破損あり、動作可</option>
+                <option value="新品未使用、未開封">新品未使用、未開封</option>
+                <option value="新品未使用">新品未使用</option>
+                <option value="使用、美品">使用、美品</option>
+                <option value="使用、使用感有り">使用、使用感有り</option>
+                <option value="破損あり、動作可">破損あり、動作可</option>
               </select></label><br>
           
           <label>年式<br>
@@ -69,14 +70,32 @@
                 @endforeach 
               </select></label><br>
           
-          <label>メーカー<br><input type="text" name="brand" /></label><br>
+          <label>メーカー<br>
+              <select name="brand">
+                <option value="" disabled selected style="display:none;">選択してください</option>
+                <option value="東芝">東芝</option>
+                <option value="Panasonic">Panasonic</option>
+                <option value="SHARP">SHARP</option>
+                <option value="SONY">SONY</option>
+                <option value="日立">日立</option>
+                <option value="アイリスオーヤマ">アイリスオーヤマ</option>
+                <option value="dyson">dyson</option>
+                <option value="象印">象印</option>
+                <option value="TIGER">TIGER</option>
+                <option value="その他">その他</option>
+                
+                
+            </select></label><br>
           
           <label>備考(任意)<br><textarea name="note" placeholder="備考欄に入力する場合はご利用可能なメールアドレスを必ずご入力ください。"　rows="15" cols="60" style="height:100px;"></textarea></label><br>
 
-          <div class="photo_space">
-          <label>画像(任意 ※複数枚選択可)<br>
-                <input type="file"　enctype='multipart/form-data' class="form-control-file" name="image" multiple/><br>
-          </div>
+        <div class="photo_space">
+          <label>画像(任意)<br>
+                <input type="file" class="form-control-file" name="image" />
+                <input type="file" class="form-control-file" name="image" />
+                <input type="file" class="form-control-file" name="image" />
+                <input type="file" class="form-control-file" name="image" /><br>
+        </div>
            <input type="submit" name="送信"/>
           
           
