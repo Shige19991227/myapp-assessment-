@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class AssessmentController extends Controller
 {
     //
-    public function index()
+    public function preview()
     {
-        return view('admin.assessment.index');
+        return view('admin.assessment.preview');
     }
 
     

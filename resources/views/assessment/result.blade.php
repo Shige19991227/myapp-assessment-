@@ -15,7 +15,7 @@
     <div class="result-main">  
     　　<p>あなたの<br>
     　　<span style="font-size:xx-large;color:red">{{$name}},{{$model_year}},{{$brand}}</span>
-    　　は<span style="font-size:xx-large;color:red">￥{{$price['min_price']}}〜￥{{$price['max_price']}}</span><br>
+    　　は<span style="font-size:xx-large;color:red">￥{{$price_table['min_price']}}〜￥{{$price}}</span><br>
     で買取が可能です。</p>
     </div>
     

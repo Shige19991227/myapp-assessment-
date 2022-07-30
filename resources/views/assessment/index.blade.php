@@ -79,22 +79,20 @@
                 <option value="SONY">SONY</option>
                 <option value="日立">日立</option>
                 <option value="アイリスオーヤマ">アイリスオーヤマ</option>
-                <option value="dyson">dyson</option>
-                <option value="象印">象印</option>
-                <option value="TIGER">TIGER</option>
-                <option value="その他">その他</option>
+                <option value="その他">その他(備考に入力してください。)</option>
                 
                 
             </select></label><br>
           
           <label>備考(任意)<br><textarea name="note" placeholder="備考欄に入力する場合はご利用可能なメールアドレスを必ずご入力ください。"　rows="15" cols="60" style="height:100px;"></textarea></label><br>
 
-        <div class="photo_space">
+        <div class="image_space">
           <label>画像(任意)<br>
-                <input type="file" class="form-control-file" name="image" />
-                <input type="file" class="form-control-file" name="image" />
-                <input type="file" class="form-control-file" name="image" />
-                <input type="file" class="form-control-file" name="image" /><br>
+                <input type="file" class="form-control-file" name="image1" />
+                <input type="file" class="form-control-file" name="image2" />
+                <input type="file" class="form-control-file" name="image3" />
+                <input type="file" class="form-control-file" name="image4" />
+                <br>
         </div>
            <input type="submit" name="送信"/>
           

@@ -16,8 +16,11 @@ Route::get('/', function () {
 });
 */
 Route::group(['prefix'=>'admin'],function(){
-    Route::get('assessment','Admin\AssessmentController@index');
+    Route::get('assessment','Admin\AssessmentController@preview')->middleware('auth');
     
 });
 Route::get('assessment','AssessmentController@index');
 Route::post('assessment/result','AssessmentController@result');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

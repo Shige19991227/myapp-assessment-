@@ -27,7 +27,7 @@ class AssessmentController extends Controller
       $assess = new Assessment;
       $form = $request->all();
       
-      $price_table = 
+      $price_tables = 
       ['オーブンレンジ' => ['min_price' => 1000 , 'max_price' => 2000],
       '電子レンジ'=>['min_price'=> 700 ,'max_price'=> 1700 ],
       '加湿器'=>['min_price'=> 500 ,'max_price'=> 1300],
@@ -42,40 +42,77 @@ class AssessmentController extends Controller
       '炊飯器'=>['min_price'=> 800 ,'max_price'=> 2000],
       '空気清浄機'=>['min_price'=> 1200 ,'max_price'=> 1700]];
       
-      $model_year_price=
-      ['新品未使用、未開封'=> 1.9 , '新品未使用'=> 1.7 , '使用、美品' => 1.5 ,'使用、使用感有り'=> 1.2 ,'破損あり、動作可'=> 0.9];
+      $condition_prices=
+      ['新品未使用、未開封'=> 1.9 , '新品未使用'=> 1.7 , '使用、美品' => 1.5 ,'使用、使用感有り'=> 1.2 ,'破損あり、動作可'=> 0.8];
       
-      $brand_price=
-      [];
+      $current_year = date('Y');
+      $model_year_values=[1.5,1.4,1.3,1.2,1.1,1.0,0.9];
+      $model_year_prices =[];
+      for ($i = 0; $i < 7; $i++)  {
+          $model_year_prices[$current_year] =$model_year_values[$i];
+          $current_year -=1;
+      }
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      $price = $price_table[$request->input('name')];
+      $brand_prices=
+      ['東芝'=>1.2,'Panasonic'=>1.2,'SHARP'=>1.2,'SONY'=>1.2,'日立'=>1.1,'アイリスオーヤマ'=>1.1];
+        
+    
       
         $name = $request->input('name');
+        $condition = $request->input('condition');
         $brand = $request->input('brand');
         $model_year = $request->input('model_year');
         $note = $request->input('note');
         
+        $price_table = $price_tables[$name];
+        $condition_price = $condition_prices[$condition];
+        $model_year_price = $model_year_prices[$model_year];
+        $brand_price = $brand_prices[$brand];
+        $price = ($price_table['max_price']*$condition_price*$model_year_price*$brand_price);
+        
         $assess->fill($form);
         $assess->save();
       
-         if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $assess->image_path = basename($path);
+         if (isset($form['image1'])) {
+        $path = $request->file('image1')->store('public/image');
+        $assess->image_path1 = basename($path);
         $assess->save();
         return view('assessment.remarks');
         }
         else {
-          $assess->image_path = null;
+          $assess->image_path1 = null;
+        }
+      
+         if (isset($form['image2'])) {
+        $path = $request->file('image2')->store('public/image');
+        $assess->image_path2 = basename($path);
+        $assess->save();
+        return view('assessment.remarks');
+        }
+        else {
+          $assess->image_path2 = null;
+        }
+      
+      
+       if (isset($form['image3'])) {
+        $path = $request->file('image3')->store('public/image');
+        $assess->image_path3 = basename($path);
+        $assess->save();
+        return view('assessment.remarks');
+        }
+        else {
+          $assess->image_path3 = null;
+        }
+      
+      
+       if (isset($form['image4'])) {
+        $path = $request->file('image4')->store('public/image');
+        $assess->image_path4 = basename($path);
+        $assess->save();
+        return view('assessment.remarks');
+        }
+        else {
+          $assess->image_path4 = null;
         }
       
        if(isset($form['note'])){
@@ -88,7 +125,7 @@ class AssessmentController extends Controller
         $assess->fill($form);
         $assess->save();
         
-        return view('assessment.result', ['name'=>$name,'brand'=>$brand,'model_year'=>$model_year , 'price' => $price]);
+        return view('assessment.result', ['name'=>$name,'brand'=>$brand,'model_year'=>$model_year , 'price_table'=>$price_table,'price' => $price]);
         
     }
     

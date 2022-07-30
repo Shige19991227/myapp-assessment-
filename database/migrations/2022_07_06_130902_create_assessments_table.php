@@ -20,7 +20,10 @@ class CreateAssessmentsTable extends Migration
             $table->string('brand',64);
             $table->string('condition',64);
             $table->text('note')->nullable();
-            $table->string('image_path',256)->nullable();
+            $table->string('image_path1',256)->nullable();
+            $table->string('image_path2',256)->nullable();
+            $table->string('image_path3',256)->nullable();
+            $table->string('image_path4',256)->nullable();
             $table->timestamps();
         });
     }
